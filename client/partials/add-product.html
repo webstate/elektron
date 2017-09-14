@@ -1,0 +1,102 @@
+
+<div class="container">
+    <div class="col-md-12" style="text-align:left;">
+        <h1 class="howdy">Howdy elektronet</h1>
+        <p class="contact-information-text">
+            Add a new product
+        </p>
+    </div>
+    <div class="row" style="margin-top: 125px;">
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-4">
+                    <p ng-class="{true: 'green', false: 'red'}[formStatus]">Fill the fields</p>
+                </div>
+                <div class="col-md-4">
+                    <p ng-class="{true:'green', false: 'red'}[pictureStatus]">Upload images</p>
+                </div>
+                <div class="col-md-4">
+                    <p ng-class="{true:'green', false: 'red'}[mainPictureStatus]">Pick main image for product</p>
+                </div>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label class="add-product-label">Product name</label>
+                    <input ng-blur="productName()" type="text" class="form-control-add" name="name" ng-model="productForm.name"/>
+                </div>
+                <div class="form-group">
+                    <label class="add-product-label">Add description</label>
+                    <textarea ng-blur="productInfo()" class="form-control-add-long" name="information" ng-model="productForm.information" />
+                </div>
+                <div class="form-group" style="margin-top: 25px;">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="add-product-label">Choose price method</label>
+                            <div style="display:inline-block;">
+                                <label style="display:inline-block;" class="add-product-label">Price per</label>
+                                <input style="width:62%; display:inline-block;" type="text" class="form-control" ng-init="productForm.priceMethod='unit'" value="unit" ng-model="productForm.priceMethod">
+                            </div>
+                            <label style="margin-top:15px;" class="add-product-label">Product price</label>
+                            <input  ng-blur="productPrice()" type="text" class="form-control-add-short" name="name" ng-model="productForm.price"/>
+
+                        </div>
+                        <div class="col-md-4">
+                            <label class="add-product-label">Quantity</label>
+                            <input ng-blur="productQuant()" type="text" class="form-control-add-short" name="name" ng-init="productForm.quantity='0'" value="0" ng-model="productForm.quantity"/>
+                            <label style="margin-top:15px;" class="add-product-label">Currency</label>
+                            <input type="text" class="form-control-add-short" ng-model="productForm.currency" ng-init="productForm.currency='€'" value="€" />
+
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div style="margin-top:30px;">
+                        <button class="add-product-btn-submit" ng-click="addProduct($event)">ADD PRODUCT</button>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <div class="row" style=" height: 223px;">
+                <ul class="admin-pic-list">
+                    <li ng-class="{activePic: activeMenu === item}" ng-repeat="item in filesToSave track by $index" class="image-holder-back" style="background-image:url({{item}})" ng-click="setMainImage(item)"></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="input-field-container">
+                    <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" onchange="angular.element(this).scope().filesChanged(this)" multiple/>
+                    <label for="file-1"><span>UPLOAD PICTURES</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" style="text-align:center;">
+            <div ng-show="message" class="alert alert-danger">
+                {{cbMessage}}
+            </div>
+        </div>
+        <!--<form class="form" ng-submit="addProduct()">
+            <div class="form-group">
+                <label>Name of the Product</label>
+                <input type="text" class="form-control" name="name" ng-model="productForm.name" />
+            </div>
+            <div class="form-group">
+                <label>Product price</label>
+                <input type="text" class="form-control" name="price" ng-model="productForm.price" />
+            </div>
+            <div class="form-group">
+                <label>Additional information</label>
+                <input type="text" class="form-control" name="information" ng-model="productForm.information" />
+            </div>
+            <div class="form-group">
+                <input type="file" onchange="angular.element(this).scope().filesChanged(this)" multiple  />
+            </div>
+            <li ng-repeat="file in files">
+                {{file.name}}
+            </li>
+            <div>
+                <button type="submit" class="btn btn-default">Add Product</button>
+            </div>
+        </form>-->
+    </div>
+</div>

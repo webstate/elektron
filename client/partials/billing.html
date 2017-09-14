@@ -1,0 +1,160 @@
+<div class="billing-header">
+    <div class="container">
+        <img id="logo-billing" src="img/logo.png" />
+        <p class="billing-back" ui-sref="landing">
+            <img id="back-btn" src="img/back.png" />Back
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <p class="billing-title">
+            BILLING
+        </p>
+    </div>
+    <div class="col-md-6">
+        <form>
+            <div class="form-group">
+                <div class="col-md-6 first-name-row">
+                    <label class="billing-label">First Name *</label>
+                    <input ng-class="{true: 'redBorder'}[firstNameError]" type="text" class="billing-form" ng-model="firstName"/>
+                </div>
+                <div class="col-md-6 last-name-row">
+                    <label class="billing-label">Last Name *</label>
+                    <input ng-class="{true: 'redBorder'}[lastNameError]" type="text" class="billing-form" ng-model="lastName"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 first-name-row">
+                    <label class="billing-label">Company name</label>
+                    <input type="text" class="billing-form" ng-model="company"/>
+                </div>
+                <div class="col-md-6 last-name-row">
+                    <label class="billing-label">VAT number</label>
+                    <input type="text" class="billing-form" ng-model="vatNumber"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="billing-label">Street address *</label>
+                <input ng-class="{true: 'redBorder'}[streetError]" type="text" class="billing-form" ng-model="street"/>
+            </div>
+            <div class="form-group">
+                <label class="billing-label">Apartment, suite, unit etc. *</label>
+                <input ng-class="{true: 'redBorder'}[apartmentError]" type="text" class="billing-form" ng-model="apartment"/>
+            </div>
+            <div class="form-group">
+                <label class="billing-label">Town / City *</label>
+                <input ng-class="{true: 'redBorder'}[townError]" type="text" class="billing-form" ng-model="town"/>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 state-row">
+                    <label class="billing-label">State</label>
+                    <input type="text" class="billing-form" ng-model="state"/>
+                </div>
+                <div class="col-md-6 zip-row">
+                    <label class="billing-label">Zip *</label>
+                    <input ng-class="{true: 'redBorder'}[zipError]" type="text" class="billing-form" ng-model="zip"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-6 email-row">
+                    <label class="billing-label">Email address *</label>
+                    <input ng-class="{true: 'redBorder'}[emailError]" type="text" class="billing-form" ng-model="emailBilling"/>
+                </div>
+                <div class="col-md-6 phone-row">
+                    <label class="billing-label">Phone *</label>
+                    <input ng-class="{true: 'redBorder'}[phoneError]" type="text" class="billing-form" ng-model="phone"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="billing-label">Order notes</label>
+                <textarea class="billing-textarea" ng-model="notes"></textarea>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-6">
+        <p class="order-title-billing">
+            Order
+        </p>
+        <ul class="billing-products hidden-sm hidden-xs">
+            <li ng-if="products.length === 0">
+                No products in the shopping bag
+            </li>
+            <li ng-repeat="item in products">
+                <div class="sidemenu-img-holder" style="background-image:url({{item.pic[0]}})"></div>
+                <div class="sidemenu-text-holder">
+                    <p class="sidemenu-product-text noselect" style="width: 350px;">
+                        {{item.name}}
+                    </p>
+                    <p class="sidemenu-quantity noselect">
+                        Quantity x {{item.quant}}
+                    </p>
+                </div>
+                <div style="float:left; max-width:150px;height:50px;">
+                    <p class="sidemenu-price-item">
+                        {{item.sum}} {{item.currency}}
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <table class="table table-bordered hidden-md hidden-lg">
+            <thead>
+                <tr>
+                    <th>
+                        Item
+                    </th>
+                    <th>
+                        Quantity
+                    </th>
+                    <th>
+                        Price
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in products">
+                    <td>
+                        {{item.name}}
+                    </td>
+                    <td>
+                        {{item.quant}}
+                    </td>
+                    <td>
+                        {{item.sum}} {{item.currency}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!--<div style="margin-top: 50px;margin-bottom: 50px;">
+            <input ng-model="checkBox.value" type="checkbox" style="float:left;margin-right: 20px;"/>
+            <p class="float:left;">I've read and accept the <span class="terms-conditions" ng-class="{true: 'checkBoxError'}[checkError]" ng-click="terms = !terms">terms & conditions</span></p>
+            <div ng-show="terms" class="termsanimation">
+                <p>
+                    Siia tuleb terms and conditions tekst
+                </p>
+            </div>
+        </div>-->
+        <p class="terms-text">
+            Total price for product(s) only. Taxes and shipping costs will be calculated for you. No commitment follows after placing an order.
+        </p>
+        <div style="margin-bottom: 100px;">
+            <a class="place-order-btn" ng-click="sendBilling()">PLACE ORDER</a>
+        </div>
+    </div>
+</div>
+<div class="completed" ng-show="completeOverlay">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2" style="text-align:center;">
+                <p class="confirmation-msg">
+                    Your order <span style="font-family: Hel-Bold;">{{orderNumb}}</span> has been received and we will contact you in 24 hours and provide an invoice.
+                    If you don't get an answer during this time, we advise you to check your spam folder also.
+                    Meanwhile enjoy the shop and see our whole range of products.
+                </p>
+                <a class="backToShop" ui-sref="landing">Back to shop</a>
+            </div>
+        </div>
+    </div>
+</div>

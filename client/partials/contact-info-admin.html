@@ -1,0 +1,24 @@
+<div class="container" ng-controller="TextBtnCtrl">
+    <div class="col-md-12" style="text-align:left;">
+        <h1 class="howdy">Howdy elektronet</h1>
+        <p class="contact-information-text">
+            Edit your contact information
+        </p>
+    </div>
+  <div class="col-md-4" ng-controller="TextBtnCtrl">
+      <text-angular ng-model="htmlVariable" ta-disabled="disabled" ta-toolbar="[]" ta-text-editor-class="contact-form"></text-angular>
+      <button class="update-info" ng-click="updateTest()" ng-hide="disabled">UPDATE INFO</button>
+      <div class="contact-info-change-btn" ng-show="disabled" ng-click="disabled = !disabled">
+          <div>
+              <i class="fa fa-pencil" aria-hidden="true" style="color:white; font-size:1.5em; padding: 12px 15px;"></i>
+          </div>
+          <div>
+              <p class="edit-btn-text">
+                  Edit
+              </p>
+          </div>
+
+      </div>
+  </div>
+
+</div>

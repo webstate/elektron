@@ -1,0 +1,65 @@
+
+<div class="row">
+    <div class="col-md-6" style="margin-top:50px;">
+        <div class="image-holder--info" style="background-image:url('{{url}}');">
+            <div class="close--information">
+                <img id="product-close" src="img/white-close.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6" style="margin-top:50px;">
+        <div class="information--info">
+            <div class="row">
+                <p class="information--title">
+                    {{title}}
+                </p>
+            </div>
+            <div class="row">
+                <p class="information--price" style="margin-top:40px;">
+                    <b style="font-familt:Hel-Bold;font-size:32px">{{price}}€</b> per unit
+                </p>
+            </div>
+            <div class="row" style="height: 150px;">
+                <p class="information--text" style="font-size:14px;">
+                    {{info}}
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="padding:0">
+                    <div class="col-md-6">
+                            <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
+                    </div>
+                    <div class="col-md-6">
+                        Total price: <p ng-model="counter.price">
+                            <span class="item-price">{{sumprice}}€</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6" style="text-align:left;">
+                    <button class="ask-more-btn" ng-click="showRequest()">ASK FOR MORE</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="add-to-cart-btn" ng-click="testRootScope()">ADD TO CART</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="request-overlay" ng-show="requestOverlay">
+    <div class="request-container">
+        <p class="request-close" ng-click="closeRequest()">
+            Close
+        </p>
+        <p class="request-text">
+            Add your email to be notified when the item is back in stock
+        </p>
+        <label class="request-email-label">Email *</label>
+        <input type="text" class="request-form-control-add" />
+        <button class="request-button">SUBMIT</button>
+    </div>
+</div>

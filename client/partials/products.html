@@ -1,0 +1,101 @@
+
+    <div class="container">
+
+        <div class="col-md-12" style="text-align:left; margin-left: -15px;">
+            <div class="col-md-6">
+                <h1 class="howdy">Howdy elektronet</h1>
+                <p class="contact-information-text">
+                    Add / Edit or remove product
+                </p>
+            </div>
+            <div class="col-md-6" style="text-align:right; margin-top: 35px;">
+                <div>
+                    <a class="add-product-btn" ui-sref="admin.addproduct">ADD NEW PRODUCT</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" ng-controller="allProductsCtrl">
+            <input type="text" class="search-input" placeholder="Search product by name" ng-model="search.name"/>
+            <div ng-repeat="product in products | filter:search" class="row" style="border-bottom: 1px solid #E0E0E0">
+                <div class="col-md-6">
+                    <div style="margin-left: -15px;margin-bottom: 15px;margin-top: 15px;float:left">
+                        <img style="height: 70px; width: 70px;" src="{{product.picture[0]}}" />
+                    </div>
+                    <div>
+                        <p class="product-admin-name">
+                            {{product.name}}
+                        </p>
+                        <p class="product-adming-quant">
+                            Quantity: {{product.quantity}}
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="products-item-price">
+                        <p class="products-item-price-text">
+                            Price per {{product.priceMethod}} <b>{{product.price}} {{product.currency}}</b>
+                        </p>
+                    </div>
+                    <a ng-click="changeProductInformation(product._id)"><div class="product-change-btn">
+                        <i class="fa fa-pencil" aria-hidden="true" style="color:white; font-size:1.5em; padding: 12px 15px;"></i>
+                    </div></a>
+                    <a ng-click="deleteProduct(product._id)"><div class="product-delete-btn">
+                        <i class="fa fa-trash-o" aria-hidden="true" style="color:white; font-size:1.5em; padding:12px 15px;"></i>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+        <!--<input type="text" class="form-control" ng-model="searchBox" />-->
+        <!--<div class="col-md-12">
+            <table class="table" ng-controller="allProductsCtrl" style="margin-top: 10px;">
+                <tbody>
+                    <tr ng-repeat="product in products | filter:searchBox">
+                        <td style="width: 80px;">
+                            <img style="height:70px; width:70px;"src="{{product.picture}}" />
+                        </td>
+                        <td >
+                            <p class="product-text-style">
+                                {{product.name}}
+                            </p>
+                            <p style="color:rgba(0,0,0,0.45);font-size:14px;">
+                                Quantity:
+                            </p>
+                        </td>
+                        <td >
+                            <p class="product-text-style" style="text-align:right;">
+                                Price per item <b>{{product.price}}€</b>
+                            </p>
+                        </td>
+                        <td style="width:200px;">
+                            <button type="button" style="margin-top:10px;" class="btn btn-change" ng-click="changeProductInformation(product._id)"></button>
+                            <button type="button" style="margin-top:10px;" class="btn btn-delete-product" ng-click="deleteProduct(product._id)"></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>-->
+    </div>
+
+<!--
+<div class="container">
+
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" style="text-align:center">
+            <h1>Admin board</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" style="text-align:center">
+            <a ui-sref="addproduct">You can add product here</a><br />
+            <a ui-sref="products">You can view and change products here</a><br />
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4" style="text-align: center;">
+            <div ng-controller="logoutController">
+              <a ng-click='logout()' class="btn btn-default">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>-->

@@ -1,0 +1,8 @@
+{
+ "apps" : [{
+ "name" : "elektronet-app",
+ "script" : "server.js",
+ "watch" : true,
+ "cwd" : "/data02/virt61426/domeenid/www.elektronet.ee/elektronet/server",
+ }]
+}
