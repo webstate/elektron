@@ -177,7 +177,7 @@
                             <span class="item-name">{{item.name}}</span>
                         </div>
                         <div class="col-md-4" style="text-align:right;">
-                            <span class="item-price">{{item.price}}€</span>
+                            <span class="item-price">{{item.price}} {{item.currency}}</span>
                         </div>
                     </div>
                 </li>
@@ -224,12 +224,11 @@
                         </div>
                         <div class="row">
                             <p class="information--price" style="margin-top:40px;">
-                                <b style="font-familt:Hel-Bold;font-size:32px">{{price}}€</b> per unit
+                                <b style="font-familt:Hel-Bold;font-size:32px">{{price}} {{currency}}</b> per unit
                             </p>
                         </div>
                         <div class="row" style="height: 235px;">
-                            <p class="information--text" style="font-size:14px;">
-                                {{info}}
+                            <p class="information--text" style="font-size:14px;" ng-bind-html="info">
                             </p>
                         </div>
                         <div class="row">
