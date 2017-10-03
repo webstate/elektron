@@ -451,7 +451,7 @@ router.post('/product/picture', upload.single('file'), function(req, res){
     //var correctPath = correct.replace(/\\/g, '/');
 
     // TODO: This should not be pushed into github
-    correctPath = str.replace('/Users/jkniest/Documents/Development/webstate/elektronet/client/', '../');
+    // correctPath = str.replace('/Users/jkniest/Documents/Development/webstate/elektronet/client/', '../');
     // TODO: End
 
 	res.json(correctPath);
