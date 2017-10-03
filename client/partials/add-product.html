@@ -26,7 +26,8 @@
                 </div>
                 <div class="form-group">
                     <label class="add-product-label">Add description</label>
-                    <textarea ng-blur="productInfo()" class="form-control-add-long" name="information" ng-model="productForm.information" />
+                    <trix-editor angular-trix ng-blur="productInfo()" name="information" ng-model="productForm.information" class="trix-content"></trix-editor>
+                    <!-- <textarea ng-blur="productInfo()" class="form-control-add-long" name="information" ng-model="productForm.information" /> -->
                 </div>
                 <div class="form-group" style="margin-top: 25px;">
                     <div class="row">

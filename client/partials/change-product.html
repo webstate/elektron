@@ -9,33 +9,49 @@
             </div>
         </div>
         <form class="form" ng-submit="addProduct()">
-            <div class="form-group">
-                <label>Name of the Product</label>
-                <!--<input type="text" class="form-control" name="name" ng-model="productForm.name" ng-value="name" />-->
-                <input class="form-control" value="{{name}}" ng-model="productForm.name" ng-initial />
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Name of the Product</label>
+                    <!--<input type="text" class="form-control" name="name" ng-model="productForm.name" ng-value="name" />-->
+                    <input class="form-control" value="{{name}}" ng-model="productForm.name" ng-initial />
+                </div>
+                <div class="form-group">
+                    <label>Product price</label>
+                    <!--<input type="text" class="form-control" name="price" ng-model="productForm.price" ng-value="price"/> -->
+                    <input class="form-control" value="{{price}}" ng-model="productForm.price" ng-initial />
+                </div>
+                <div class="form-group">
+                    <label>Additional information</label>
+                    <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
+                    <!-- <input class="form-control" value="{{information}}" ng-model="productForm.information" ng-initial /> -->
+                    <trix-editor angular-trix ng-model="productForm.information"></trix-editor>
+                </div>
+                <div class="form-group">
+                    <label>Quantity</label>
+                    <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
+                    <input class="form-control" value="{{quant}}" ng-model="productForm.quantity" ng-initial />
+                </div>
+                <div class="form-group">
+                    <label>Currency</label>
+                    <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
+                    <input class="form-control" value="{{currency}}" ng-model="productForm.currency" ng-initial />
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-default" ng-click="saveProduct()">Change Product</button>
+                </div>
             </div>
-            <div class="form-group">
-                <label>Product price</label>
-                <!--<input type="text" class="form-control" name="price" ng-model="productForm.price" ng-value="price"/> -->
-                <input class="form-control" value="{{price}}" ng-model="productForm.price" ng-initial />
-            </div>
-            <div class="form-group">
-                <label>Additional information</label>
-                <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
-                <input class="form-control" value="{{information}}" ng-model="productForm.information" ng-initial />
-            </div>
-            <div class="form-group">
-                <label>Quantity</label>
-                <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
-                <input class="form-control" value="{{quant}}" ng-model="productForm.quantity" ng-initial />
-            </div>
-            <div class="form-group">
-                <label>Currency</label>
-                <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
-                <input class="form-control" value="{{currency}}" ng-model="productForm.currency" ng-initial />
-            </div>
-            <div>
-                <button type="submit" class="btn btn-default" ng-click="saveProduct()">Change Product</button>
+            <div class="col-md-6">
+                <div class="row" style=" height: 223px;">
+                    <ul class="admin-pic-list">
+                        <li ng-class="{activePic: activeMenu === item}" ng-repeat="item in pictureCarousel track by $index" class="image-holder-back" style="background-image:url({{item}})" ng-click="setMainImage(item)"></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="input-field-container">
+                        <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" onchange="angular.element(this).scope().filesChanged(this)" multiple/>
+                        <label for="file-1"><span>UPLOAD PICTURES</span></label>
+                    </div>
+                </div>
             </div>
         </form>
     </div>

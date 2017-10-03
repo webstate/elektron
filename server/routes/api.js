@@ -379,7 +379,9 @@ router.post('/update', function(req, res){
             price: req.body.price,
             information: req.body.information,
             quantity: parseInt(req.body.quant),
-            currency: req.body.currency
+            currency: req.body.currency,
+            picture: req.body.pictureArray,
+            mainImage: req.body.mainImage
         }, function(err, callback){
             if(err)console.log(err);
             res.json({
@@ -447,6 +449,10 @@ router.post('/product/picture', upload.single('file'), function(req, res){
     console.log(correctPath);
     //var correct = str.replace('C:\\xampp\\htdocs\\elektronetfinal\\client\\','../');
     //var correctPath = correct.replace(/\\/g, '/');
+
+    // TODO: This should not be pushed into github
+    correctPath = str.replace('/Users/jkniest/Documents/Development/webstate/elektronet/client/', '../');
+    // TODO: End
 
 	res.json(correctPath);
 })

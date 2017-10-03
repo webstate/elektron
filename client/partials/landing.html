@@ -506,9 +506,7 @@
                             </p>
                         </div>
                         <div class="row" style="min-height:50px;">
-                            <p class="information--text" style="font-size:14px;">
-                                {{info}}
-                            </p>
+                            <p class="information--text" style="font-size:14px;" ng-bind-html="info"></p>
                         </div>
                         <div class="row">
                             <p class="information--text">In stock: {{quant}}</p>

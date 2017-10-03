@@ -1,14 +1,14 @@
 {
   "name": "mean-auth",
-
   "scripts": {
     "start": "node server/server.js"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/oskarmartin/elektronetfinal.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oskarmartin/elektronetfinal.git"
   },
   "dependencies": {
+    "angular-trix": "^1.0.2",
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
     "cookie-parser": "^1.4.1",

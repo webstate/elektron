@@ -1,6 +1,6 @@
 var changeProductCtrl = angular.module('changeProductCtrl', []);
 
-changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, productService, idService, $location, $timeout){
+changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, productService, idService, $location, $timeout, pictureService){
     var id = idService.getId();
     productService.getProductById(id).then(function(data){
         $scope.name = data.name;
@@ -8,6 +8,9 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.information = data.information;
         $scope.quant = data.quantity;
         $scope.currency = data.currency;
+        $scope.productForm.information = data.information;
+        $scope.pictureCarousel = data.picture;
+        $scope.activeMenu = data.mainImage;
     }, function(err){
         console.log(err);
     })
@@ -42,7 +45,15 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         }else{
             quant = $scope.productForm.quantity;
         }
-        productService.updateProduct(id, name, price, currency, information, quant).then(function(data){
+
+        var index = $scope.pictureCarousel.indexOf($scope.activeMenu);
+        if(index > -1){
+            $scope.pictureCarousel.splice(index, 1);
+        }
+        $scope.pictureCarousel.unshift($scope.activeMenu);
+
+
+        productService.updateProduct(id, name, price, currency, information, quant, $scope.pictureCarousel, $scope.activeMenu).then(function(data){
             console.log("im here");
             $timeout(function(){
                 $location.path('admin/products');
@@ -52,5 +63,24 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
             console.log(err);
         })
     }
-
+    $scope.trixInitialize = function(e, editor){
+        editor.setSelectedRange([0, 0]);
+        editor.insertHTML($scope.productForm);
+    }
+    $scope.setMainImage = function(url){
+        $scope.activeMenu = url;
+        $scope.mainPictureStatus = true;
+    }
+    $scope.filesChanged = function(elm){
+        $scope.files = elm.files;
+        angular.forEach($scope.files, function(file){
+            var fd = new FormData();
+            fd.append('file', file);
+            pictureService.saveImage(fd).then(function(file){
+                $scope.pictureCarousel.push(file);
+                $scope.pictureStatus = true;
+            }, function(err){
+            })
+        })
+    }
 })

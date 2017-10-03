@@ -33,8 +33,8 @@ var myApp = angular.module('myApp', [
     'ngAnimate',
     'mailService',
     'startFrom',
-    'angularSlideables'
-
+    'angularSlideables',
+    'angularTrix'
 ]);
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
