@@ -1898,3 +1898,10 @@ input:focus{
 .request-form-control-add:visited{
     outline: none;
 }
+
+.close {
+    width: 20px;
+    height: 20px;
+    background-color: red;
+    opacity: 1;
+}

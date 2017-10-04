@@ -43,7 +43,9 @@
             <div class="col-md-6">
                 <div class="row" style=" height: 223px;">
                     <ul class="admin-pic-list">
-                        <li ng-class="{activePic: activeMenu === item}" ng-repeat="item in pictureCarousel track by $index" class="image-holder-back" style="background-image:url({{item}})" ng-click="setMainImage(item)"></li>
+                        <li ng-class="{activePic: activeMenu === item}" ng-repeat="item in pictureCarousel track by $index" class="image-holder-back" style="background-image:url({{item}})" ng-click="setMainImage(item, $event)">
+                            <span class="close" ng-click="deleteImage(item)"></span>
+                        </li>
                     </ul>
                 </div>
                 <div class="row">

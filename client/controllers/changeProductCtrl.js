@@ -67,7 +67,14 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         editor.setSelectedRange([0, 0]);
         editor.insertHTML($scope.productForm);
     }
-    $scope.setMainImage = function(url){
+    $scope.setMainImage = function(url, event){
+
+        if (event.target.classList.contains('close')) {
+            return;
+        }
+
+        console.dir(event);
+
         $scope.activeMenu = url;
         $scope.mainPictureStatus = true;
     }
@@ -82,5 +89,11 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
             }, function(err){
             })
         })
+    }
+    $scope.deleteImage = function(image) {
+        var index = $scope.pictureCarousel.indexOf(image);
+        if (index > -1) {
+            $scope.pictureCarousel.splice(index, 1);
+        }
     }
 })

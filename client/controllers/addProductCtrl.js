@@ -18,7 +18,12 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
         $scope.imagesFront = $scope.filesToSave;
         console.log("this is images front: " + $scope.imagesFront);
     }, true);*/
-    $scope.setMainImage = function(url){
+    $scope.setMainImage = function(url, event){
+
+        if (event.target.classList.contains('close')) {
+            return;
+        }
+
         $scope.activeMenu = url;
         $scope.mainPictureStatus = true;
     }
@@ -92,6 +97,12 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
             $scope.cbMessage =err;
             $scope.productForm = {};
         })
+    }
+    $scope.deleteImage = function(image) {
+        var index = $scope.filesToSave.indexOf(image);
+        if (index > -1) {
+            $scope.filesToSave.splice(index, 1);
+        }
     }
 
     $scope.names = ["Price per unit", "Price per kg", "Price per meter"];
