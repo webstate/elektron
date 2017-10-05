@@ -360,7 +360,8 @@ router.post('/add', function(req, res){
         quantity: parseInt(req.body.quantity),
         serial: req.body.serial,
 		picture: req.body.pictureArray,
-        mainImage: req.body.mainImage
+        mainImage: req.body.mainImage,
+        keyword: req.body.keywords
 	}, function(err, product){
 		if(err) res.send(err);
 		return res.status(200).json({
@@ -381,7 +382,8 @@ router.post('/update', function(req, res){
             quantity: parseInt(req.body.quant),
             currency: req.body.currency,
             picture: req.body.pictureArray,
-            mainImage: req.body.mainImage
+            mainImage: req.body.mainImage,
+            keyword: req.body.keywords
         }, function(err, callback){
             if(err)console.log(err);
             res.json({

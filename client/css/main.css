@@ -1418,6 +1418,7 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100px;
     background-size: 100%;
     background-repeat:no-repeat;
+    position: relative;
 }
 .admin-pic-list{
     list-style: none;
@@ -1902,6 +1903,19 @@ input:focus{
 .close {
     width: 20px;
     height: 20px;
-    background-color: red;
+    background-color: #424242;
+    border-radius: 50%;
     opacity: 1;
+
+    position: absolute;
+    right: -8px;
+    top: -8px;
+}
+
+.close:after {
+    content: 'x';
+    font-size: 14px;
+    position: absolute;
+    top: 4px;
+    left: 7px;
 }

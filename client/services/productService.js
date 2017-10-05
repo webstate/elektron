@@ -11,9 +11,9 @@ productService.factory('productService', function($q, $timeout, $http){
         })
         return d.promise;
     }
-    function addProduct(name, priceMethod, currency, price, info, quantity, serial,pictureArray, mainImage){
+    function addProduct(name, priceMethod, currency, price, info, quantity, serial,pictureArray, mainImage, keywords){
         var d = $q.defer();
-        $http.post('products/add', {name:name, priceMethod:priceMethod, currency:currency, price:price, information:info,quantity:quantity, serial:serial, pictureArray:pictureArray, mainImage:mainImage})
+        $http.post('products/add', {name:name, priceMethod:priceMethod, currency:currency, price:price, information:info,quantity:quantity, serial:serial, pictureArray:pictureArray, mainImage:mainImage, keywords: keywords})
         .success(function(data, status){
             if(status === 200 && data.status){
                 d.resolve(data);
@@ -35,9 +35,9 @@ productService.factory('productService', function($q, $timeout, $http){
         })
         return d.promise;
     }
-    function updateProduct(id, name, price, currency, information, quant, pictureArray, mainImage){
+    function updateProduct(id, name, price, currency, information, quant, pictureArray, mainImage, keywords){
         var d = $q.defer();
-        $http.post('products/update', {id:id, name:name, price:price, currency:currency, information: information, quant:quant, pictureArray:pictureArray, mainImage:mainImage})
+        $http.post('products/update', {id:id, name:name, price:price, currency:currency, information: information, quant:quant, pictureArray:pictureArray, mainImage:mainImage, keywords:keywords})
         .success(function(data){
             d.resolve(data);
         }).error(function(err){

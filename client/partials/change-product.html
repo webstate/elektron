@@ -36,6 +36,10 @@
                     <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
                     <input class="form-control" value="{{currency}}" ng-model="productForm.currency" ng-initial />
                 </div>
+                <div class="form-group">
+                    <label>Keywords <small>(sperate by comma)</small></label>
+                    <input class="form-control" value="{{keyword}}" ng-model="productForm.keyword" ng-initial />
+                </div>
                 <div>
                     <button type="submit" class="btn btn-default" ng-click="saveProduct()">Change Product</button>
                 </div>

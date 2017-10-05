@@ -29,6 +29,11 @@
                     <trix-editor angular-trix ng-blur="productInfo()" name="information" ng-model="productForm.information" class="trix-content"></trix-editor>
                     <!-- <textarea ng-blur="productInfo()" class="form-control-add-long" name="information" ng-model="productForm.information" /> -->
                 </div>
+                <div class="form-group">
+                    <label class="add-product-label">Keywords <small>(seperate by comma)</small></label>
+                    <input type="text" class="form-control-add" name="keywords" ng-model="productForm.keyword">
+                    <!-- <textarea ng-blur="productInfo()" class="form-control-add-long" name="information" ng-model="productForm.information" /> -->
+                </div>
                 <div class="form-group" style="margin-top: 25px;">
                     <div class="row">
                         <div class="col-md-4">

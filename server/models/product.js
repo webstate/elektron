@@ -9,6 +9,7 @@ var Product = new Schema({
     information: String,
     picture: [String],
     quantity: {type: Number, default: 0},
-    mainImage: {type: String, default:""}
+    mainImage: {type: String, default:""},
+    keyword: String
 });
 module.exports = mongoose.model('products', Product);

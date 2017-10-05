@@ -1,3 +1,5 @@
+<meta name="keywords" content="{{keywords}}">
+
 <div class="landing--banner">
     <scroll-nav>
         <nav ng-show="scrollBar" class="navbar-landing navbar-fixed-top proovime" ng-controller="navBarCtrl">
@@ -98,8 +100,7 @@
                             </p>
                         </div>
                         <div class="row information-text-height">
-                            <p class="information--text">
-                                {{info}}
+                            <p class="information--text" ng-bind-html="info">
                             </p>
                         </div>
                         <div class="row">
@@ -387,8 +388,7 @@
                             </p>
                         </div>
                         <div class="row information--text-row">
-                            <p class="information--text">
-                                {{info}}
+                            <p class="information--text" ng-bind-html="info">
                             </p>
                         </div>
                         <div class="row divider-product">
@@ -618,8 +618,7 @@
                             </p>
                         </div>
                         <div class="row information-text-height">
-                            <p class="information--text">
-                                {{info}}
+                            <p class="information--text" ng-bind-html="info">
                             </p>
                         </div>
                         <div class="row">

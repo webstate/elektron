@@ -2,6 +2,7 @@ var appCtrl = angular.module('appCtrl', []);
 
 appCtrl.controller('appCtrl', function($scope, $state, $document, productService, $rootScope){
     $rootScope.itemsInBag = 0;
+    $scope.keywords = '';
     var boom = [];
     $scope.searchInput = "";
     $scope.close = function(){
@@ -11,7 +12,14 @@ appCtrl.controller('appCtrl', function($scope, $state, $document, productService
     }
     productService.getProducts().then(function(data){
         $scope.products = data;
-        //console.log(data);
+
+        var keywords = [];
+        for (var i=0; i<data.length; i++) {
+            keywords = keywords.concat(data[i].keyword.split(","));
+        }
+
+        $scope.keywords = keywords.join(',');
+
         var chunk = function(arr, size){
             var newArr = [];
             for(var i = 0; i < arr.length; i += size){

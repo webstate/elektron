@@ -11,6 +11,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.productForm.information = data.information;
         $scope.pictureCarousel = data.picture;
         $scope.activeMenu = data.mainImage;
+        $scope.keyword = data.keyword;
     }, function(err){
         console.log(err);
     })
@@ -20,6 +21,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         var currency = "";
         var information = "";
         var quant = "";
+        var keyword = "";
         if($scope.productForm.name === '{{name}}'){
             name = $scope.name;
         }else{
@@ -45,6 +47,11 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         }else{
             quant = $scope.productForm.quantity;
         }
+        if($scope.productForm.keyword === '{{keyword}}'){
+            keyword = $scope.keyword;
+        }else{
+            keyword = $scope.productForm.keyword;
+        }
 
         var index = $scope.pictureCarousel.indexOf($scope.activeMenu);
         if(index > -1){
@@ -53,7 +60,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.pictureCarousel.unshift($scope.activeMenu);
 
 
-        productService.updateProduct(id, name, price, currency, information, quant, $scope.pictureCarousel, $scope.activeMenu).then(function(data){
+        productService.updateProduct(id, name, price, currency, information, quant, $scope.pictureCarousel, $scope.activeMenu, keyword).then(function(data){
             console.log("im here");
             $timeout(function(){
                 $location.path('admin/products');
