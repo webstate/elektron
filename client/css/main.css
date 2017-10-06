@@ -1325,7 +1325,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .information--text > div {
     overflow: scroll;
-    max-height: 210px;
+    max-height: 190px;
+    overflow-x: hidden;
 }
 .information--text-row{
     height: 150px;
