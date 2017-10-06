@@ -447,7 +447,7 @@ router.post('/product/picture', upload.single('file'), function(req, res){
 	})
 	var str = req.file.path;
 
-    var correctPath = str.replace(/\/data02\/virt61426\/domeenid\/www.elektronet.ee\/elektronet\/client\//, '../');
+    var correctPath = str.replace(/\/data02\/virt61426\/domeenid\/www.elektronet.ee\/elektronet\/elektronet\/client\//, '../');
     console.log(correctPath);
     //var correct = str.replace('C:\\xampp\\htdocs\\elektronetfinal\\client\\','../');
     //var correctPath = correct.replace(/\\/g, '/');
