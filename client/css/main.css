@@ -1829,7 +1829,7 @@ input:focus{
     }
     .information--text-row{
         height: 90px;
-        overflow: scroll;
+        /*overflow: scroll;*/
         margin-bottom: 30px;
     }
     .divider-length{
