@@ -732,7 +732,7 @@ footer{
     font-family: Hel-Light;
     color: #757575;
     margin-left: 20px;
-    margin-top: 20px;
+    /*margin-top: 20px;*/
 }
 .close--information{
     height: 60px;
