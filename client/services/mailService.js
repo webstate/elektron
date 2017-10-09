@@ -61,7 +61,7 @@ mailService.factory('mailService', function($q, $timeout, $http){
             phone:phone,
             notes: notes,
             products: products,
-            vat: vat
+            vatNumber: vat
         })
         .success(function(data){
             d.resolve(data);

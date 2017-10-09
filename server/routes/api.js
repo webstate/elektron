@@ -183,7 +183,7 @@ router.post('/order', function(req, res){
     }
     var orderToShop = {
         from: "Tellimise liides<info@elektronet.ee>",
-        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee",
+        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee, mail@jkniest.de",
         subject: "Tehtud on uus tellimus",
         html: '<!DOCTYPE html>\
             <html>\
