@@ -3,8 +3,8 @@ var router = express.Router();
 var passport = require('passport');
 var multer = require('multer');
 var path = require('path');
-var api_key = "kasmd";
-var domain = "aksmd";
+var api_key = "key-99008ae76504df2a720c17c9735ad0fa";
+var domain = "elektronet.ee";
 var mailgun = require('mailgun-js')({apiKey:api_key, domain: domain});
 
 var storage = multer.diskStorage({
@@ -257,7 +257,7 @@ router.post('/contact', function(req, res){
     }
     var feedBackToShop = {
         from: "Tagasiside liides<info@elektronet.ee>",
-        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee",
+        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee, mail@jkniest.de",
         subject:"Uus tagasiside elektronet.ee kaudu",
         html:'<!DOCTYPE html>\
             <html>\
