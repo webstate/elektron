@@ -4,6 +4,10 @@ allProductsCtrl.controller('allProductsCtrl', function($http, $scope, idService,
     $http.get('products/all').success(function(data){
         //console.log(data);
         $scope.products = data;
+        for(var i = 0; i < $scope.products.length; i++) {
+            $scope.products[i].quantityStr = isNaN($scope.products[i].quantity) ? 'Unlimited' : $scope.products[i].quantity;
+        }
+        $scope.quantity = data.quantity;
     }, function(err){
         //console.log(err);
     })

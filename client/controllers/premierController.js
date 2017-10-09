@@ -263,4 +263,7 @@ premierController.controller('premierController', function($scope, productServic
             $scope.askForMoreOverlay = false;
         })
     }
+    $scope.isNaN = function(number){
+        return isNaN(number);
+    }
 })

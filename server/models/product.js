@@ -8,7 +8,7 @@ var Product = new Schema({
     currency: String,
     information: String,
     picture: [String],
-    quantity: {type: Number, default: 0},
+    quantity: {type: String, default: ""},
     mainImage: {type: String, default:""},
     keyword: String
 });

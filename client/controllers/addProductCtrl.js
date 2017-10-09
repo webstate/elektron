@@ -65,7 +65,7 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
     }
 
     $scope.checkAll = function(){
-        if($scope.name === true && $scope.info === true && $scope.quant === true && $scope.price === true &&
+        if($scope.name === true && $scope.info === true && $scope.price === true &&
         typeof($scope.productForm.name) !== 'undefined' && typeof($scope.productForm.price) !== 'undefined' && typeof($scope.productForm.information) !== 'undefined'
         && typeof($scope.productForm.price) !== 'undefined'){
             $scope.formStatus = true;

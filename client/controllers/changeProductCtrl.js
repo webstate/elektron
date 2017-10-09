@@ -6,7 +6,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.name = data.name;
         $scope.price = data.price;
         $scope.information = data.information;
-        $scope.quant = data.quantity;
+        $scope.quant = isNaN(data.quantity) ? '' : data.quantity;
         $scope.currency = data.currency;
         $scope.productForm.information = data.information;
         $scope.pictureCarousel = data.picture;

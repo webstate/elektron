@@ -507,7 +507,7 @@
                         <div class="row" style="min-height:50px;">
                             <p class="information--text" style="font-size:14px;" ng-bind-html="info"></p>
                         </div>
-                        <div class="row">
+                        <div class="row" ng-if="!isNaN(quant)">
                             <p class="information--text">In stock: {{quant}}</p>
                         </div>
                         <div class="row">
@@ -515,7 +515,7 @@
                                 <div ng-if="quant === 0" class="col-md-6">
                                     <b  style="font-family:Hel-Bold;">Out of stock</b>
                                 </div>
-                                <div ng-if="quant > 0" class="col-md-6">
+                                <div ng-if="quant > 0 || isNaN(quant)" class="col-md-6">
                                         <a  class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-model="counter.value" class="information--quant noselect" min="0" max="{{quant}}"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
                                 </div>
                                 <div class="col-md-6">
@@ -530,11 +530,11 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6" style="text-align:left;">
-                                <button ng-if="quant > 0" class="ask-more-btn" ng-click="askForMore()">ASK FOR INQUIRY</button>
+                                <button ng-if="quant > 0 || isNaN(quant)" class="ask-more-btn" ng-click="askForMore()">ASK FOR INQUIRY</button>
                                 <button ng-if="quant == 0" class="ask-more-btn" ng-click="showRequest(title)">NOTIFY WHEN IN STOCK</button>
                             </div>
                             <div class="col-md-6">
-                                <button ng-if="quant > 0" class="add-to-cart-btn" ng-click="testRootScope()">ADD TO CART</button>
+                                <button ng-if="quant > 0 || isNaN(quant)" class="add-to-cart-btn" ng-click="testRootScope()">ADD TO CART</button>
                             </div>
                         </div>
                     </div>
