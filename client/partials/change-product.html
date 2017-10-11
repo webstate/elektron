@@ -27,6 +27,11 @@
                     <trix-editor angular-trix ng-model="productForm.information"></trix-editor>
                 </div>
                 <div class="form-group">
+                    <label>Price per</label>
+                    <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
+                    <input class="form-control" value="{{priceMethod}}" ng-model="productForm.priceMethod" ng-initial />
+                </div>
+                <div class="form-group">
                     <label>Quantity</label>
                     <!--<input type="text" class="form-control" name="information" ng-model="productForm.information" ng-value="information"/>-->
                     <input class="form-control" value="{{quant}}" ng-model="productForm.quantity" ng-initial />

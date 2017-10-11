@@ -35,9 +35,9 @@ productService.factory('productService', function($q, $timeout, $http){
         })
         return d.promise;
     }
-    function updateProduct(id, name, price, currency, information, quant, pictureArray, mainImage, keywords){
+    function updateProduct(id, name, price, currency, information, quant, pictureArray, mainImage, keywords, priceMethod){
         var d = $q.defer();
-        $http.post('products/update', {id:id, name:name, price:price, currency:currency, information: information, quant:quant, pictureArray:pictureArray, mainImage:mainImage, keywords:keywords})
+        $http.post('products/update', {id:id, name:name, price:price, currency:currency, information: information, quant:quant, pictureArray:pictureArray, mainImage:mainImage, keywords:keywords, priceMethod: priceMethod})
         .success(function(data){
             d.resolve(data);
         }).error(function(err){

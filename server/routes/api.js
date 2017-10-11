@@ -383,7 +383,8 @@ router.post('/update', function(req, res){
             currency: req.body.currency,
             picture: req.body.pictureArray,
             mainImage: req.body.mainImage,
-            keyword: req.body.keywords
+            keyword: req.body.keywords,
+            priceMethod: req.body.priceMethod
         }, function(err, callback){
             if(err)console.log(err);
             res.json({
