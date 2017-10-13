@@ -227,7 +227,8 @@
                         </div>
                         <div class="row">
                             <p class="information--price">
-                                <b style="font-familt:Hel-Bold;font-size:32px">{{price}} {{currency}}</b> per unit
+                                <b style="font-familt:Hel-Bold;font-size:32px">{{price}} {{currency}}</b> per unit<br>
+                                <span ng-if="minOrderQuant">MOQ: {{minOrderQuant}}</span>
                             </p>
                         </div>
                         <div class="row">
@@ -236,9 +237,6 @@
                         </div>
                         <div class="row" ng-if="!isNaN(quant)">
                             <p class="information--text">In stock: {{quant}}</p>
-                        </div>
-                        <div class="row" ng-if="minOrderQuant">
-                            <p class="information--text">Min order quantity: {{minOrderQuant}}</p>
                         </div>
                         <div class="row">
                             <div class="col-md-6" style="padding:0">
@@ -395,7 +393,8 @@
                         </div>
                         <div class="row">
                             <p class="information--price">
-                                <b style="font-familt:Hel-Bold;font-size:32px">{{price}}{{currency}}</b> per unit
+                                <b style="font-familt:Hel-Bold;font-size:32px">{{price}}{{currency}}</b> per unit<br>
+                                <span ng-if="minOrderQuant">MOQ: {{minOrderQuant}}</span>
                             </p>
                         </div>
                         <div class="row information--text-row">
@@ -405,9 +404,6 @@
 
                         <div class="row" ng-if="!isNaN(quant)">
                             <p class="information--text">In stock: {{quant}}</p>
-                        </div>
-                        <div class="row" ng-if="minOrderQuant">
-                            <p class="information--text">Min order quantity: {{minOrderQuant}}</p>
                         </div>
                         <div class="row divider-product">
                             <div class="col-md-6 divider-length" style="padding:0">
@@ -521,8 +517,8 @@
                         </div>
                         <div class="row">
                             <p class="information--price" style="margin-top:20px;">
-                                <b style="font-family:Hel-Bold;font-size:32px">{{price}} {{currency}}</b> Price per {{priceMethod}}
-
+                            <b style="font-family:Hel-Bold;font-size:32px">{{price}} {{currency}}</b> Price per {{priceMethod}}<br>
+                            <span ng-if="minOrderQuant">MOQ: {{minOrderQuant}}</span>
                             </p>
                         </div>
                         <div class="row" style="min-height:50px;">
@@ -531,10 +527,6 @@
                         <div class="row" ng-if="!isNaN(quant)">
                             <p class="information--text">In stock: {{quant}}</p>
                         </div>
-                        <div class="row" ng-if="minOrderQuant">
-                            <p class="information--text">Min order quantity: {{minOrderQuant}}</p>
-                        </div>
-
                         <div class="row">
                             <div class="col-md-6" style="padding:0">
                                 <div ng-if="quant === 0" class="col-md-6">
