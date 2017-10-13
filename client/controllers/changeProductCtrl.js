@@ -13,6 +13,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.pictureCarousel = data.picture;
         $scope.activeMenu = data.mainImage;
         $scope.keyword = data.keyword;
+        $scope.minOrderQuant = data.minOrderQuantity;
     }, function(err){
         console.log(err);
     })
@@ -24,6 +25,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         var quant = "";
         var keyword = "";
         var priceMethod = "";
+        var minOrderQuant = "";
         if($scope.productForm.name === '{{name}}'){
             name = $scope.name;
         }else{
@@ -49,6 +51,11 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         }else{
             quant = $scope.productForm.quantity;
         }
+        if($scope.productForm.minOrderQuantity === '{{minOrderQuant}}') {
+            minOrderQuant = $scope.minOrderQuant;
+        }else{
+            minOrderQuant = $scope.productForm.minOrderQuantity;
+        }
         if($scope.productForm.priceMethod === '{{priceMethod}}'){
             priceMethod = $scope.priceMethod;
         }else{
@@ -67,7 +74,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.pictureCarousel.unshift($scope.activeMenu);
 
 
-        productService.updateProduct(id, name, price, currency, information, quant, $scope.pictureCarousel, $scope.activeMenu, keyword, priceMethod).then(function(data){
+        productService.updateProduct(id, name, price, currency, information, quant, $scope.pictureCarousel, $scope.activeMenu, keyword, priceMethod, minOrderQuant).then(function(data){
             console.log("im here");
             $timeout(function(){
                 $location.path('admin/products');

@@ -45,6 +45,9 @@
                             <label style="margin-top:15px;" class="add-product-label">Product price</label>
                             <input  ng-blur="productPrice()" type="text" class="form-control-add-short" name="name" ng-model="productForm.price"/>
 
+                            <label style="margin-top:15px;" class="add-product-label">Min. Order Quantity</label>
+                            <input type="text" class="form-control-add-short" name="name" ng-init="productForm.minOrderQuantity=''" value="" ng-model="productForm.minOrderQuantity"/>
+
                         </div>
                         <div class="col-md-4">
                             <label class="add-product-label">Quantity</label>

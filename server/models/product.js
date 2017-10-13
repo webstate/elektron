@@ -10,6 +10,7 @@ var Product = new Schema({
     picture: [String],
     quantity: {type: String, default: ""},
     mainImage: {type: String, default:""},
-    keyword: String
+    keyword: String,
+    minOrderQuantity: {type: String, default: ""}
 });
 module.exports = mongoose.model('products', Product);

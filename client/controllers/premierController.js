@@ -159,6 +159,7 @@ premierController.controller('premierController', function($scope, productServic
             $scope.url = data.picture;
             $scope.sumprice = data.price;
             $scope.quant = data.quantity;
+            $scope.minOrderQuant = isNaN(data.minOrderQuantity) ? null : data.minOrderQuantity;
             $scope.mainUrl = data.picture[0];
             holder = data.mainImage;
             $scope.pictureCarousel = data.picture;

@@ -14,6 +14,7 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
     $scope.pictureStatus = false;
     $scope.mainPictureStatus = false;
     $scope.keyword = "";
+    $scope.minOrderQuant = false;
 
     /*$scope.$watch('filesToSave.length', function(){
         $scope.imagesFront = $scope.filesToSave;
@@ -83,7 +84,7 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
             $scope.filesToSave.splice(index, 1);
         }
         $scope.filesToSave.unshift($scope.activeMenu);
-        productService.addProduct($scope.productForm.name, $scope.productForm.priceMethod, $scope.productForm.currency, $scope.productForm.price, $scope.productForm.information,$scope.productForm.quantity,"none serial", $scope.filesToSave, $scope.activeMenu, $scope.productForm.keyword)
+        productService.addProduct($scope.productForm.name, $scope.productForm.priceMethod, $scope.productForm.currency, $scope.productForm.price, $scope.productForm.information,$scope.productForm.quantity,"none serial", $scope.filesToSave, $scope.activeMenu, $scope.productForm.keyword, $scope.productForm.minOrderQuantity)
         .then(function(data){
             $scope.productForm = {};
             $scope.filesToSave = [];

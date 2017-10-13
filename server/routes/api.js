@@ -361,7 +361,8 @@ router.post('/add', function(req, res){
         serial: req.body.serial,
 		picture: req.body.pictureArray,
         mainImage: req.body.mainImage,
-        keyword: req.body.keywords
+        keyword: req.body.keywords,
+        minOrderQuantity: req.body.minOrderQuantity
 	}, function(err, product){
 		if(err) res.send(err);
 		return res.status(200).json({
@@ -384,7 +385,8 @@ router.post('/update', function(req, res){
             picture: req.body.pictureArray,
             mainImage: req.body.mainImage,
             keyword: req.body.keywords,
-            priceMethod: req.body.priceMethod
+            priceMethod: req.body.priceMethod,
+            minOrderQuantity: req.body.minOrderQuant
         }, function(err, callback){
             if(err)console.log(err);
             res.json({
