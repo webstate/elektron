@@ -5,8 +5,17 @@
             Edit your contact information
         </p>
     </div>
-  <div class="col-md-4" ng-controller="TextBtnCtrl">
-      <text-angular ng-model="htmlVariable" ta-disabled="disabled" ta-toolbar="[]" ta-text-editor-class="contact-form"></text-angular>
+  <div class="col-md-12" ng-controller="TextBtnCtrl">
+      <div class="row">
+          <div class="col-md-6">
+            <text-angular ng-model="htmlVariable" ta-disabled="disabled" ta-toolbar="[]" ta-text-editor-class="contact-form"></text-angular>
+          </div>
+
+          <div class="col-md-6">
+              <text-angular ng-model="footerVariable" ta-disabled="disabled" ta-toolbar="[]" ta-text-editor-class="contact-form"></text-angular>
+          </div>
+      </div>
+
       <button class="update-info" ng-click="updateTest()" ng-hide="disabled">UPDATE INFO</button>
       <div class="contact-info-change-btn" ng-show="disabled" ng-click="disabled = !disabled">
           <div>

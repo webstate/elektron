@@ -476,6 +476,30 @@ router.post('/info/get', function(req, res){
         title: 'test'
     },function(err, info){
         if(err) res.send(err);
+
+        if (!info) {
+            Info.create({
+                title: 'test',
+                info: ''
+            });
+        }
+
+        res.json(info);
+    })
+})
+router.post('/footer/get', function(req, res){
+    Info.findOne({
+        title: 'footer'
+    },function(err, info){
+        if(err) res.send(err);
+
+        if (!info) {
+            Info.create({
+                title: 'footer',
+                info: ''
+            });
+        }
+
         res.json(info);
     })
 })
@@ -493,6 +517,25 @@ router.post('/info', function(req, res){
             console.log(test);
             res.json({
                 status: "Contact info was updated"
+            })
+        })
+    })
+})
+
+router.post('/footer', function(req, res){
+
+    Info.findOne({
+        title: 'footer'
+    }, function(err, info){
+        console.log(info);
+        if(err) res.send(err);
+        info.update({
+            info: req.body.info
+        }, function(err, test){
+            if(err) res.send(err);
+            console.log(test);
+            res.json({
+                status: "Footer info was updated"
             })
         })
     })

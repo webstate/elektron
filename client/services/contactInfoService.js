@@ -3,6 +3,7 @@ var contactInfoService = angular.module('contactInfoService', []);
 contactInfoService.factory('contactInfoService', function($q, $http){
     return({
         getContactInfo: getContactInfo,
+        getFooterInfo: getFooterInfo,
         updateContactInfo: updateContactInfo,
         createContactInfo:createContactInfo
     })
@@ -29,8 +30,20 @@ contactInfoService.factory('contactInfoService', function($q, $http){
         })
         return d.promise;
     }
-    function updateContactInfo(info){
+    function getFooterInfo(){
         var d = $q.defer();
+        $http.post('products/footer/get')
+            .success(function(data){
+                d.resolve(data);
+            })
+            .error(function(err){
+                d.reject(err);
+            })
+        return d.promise;
+    }
+    function updateContactInfo(info, footer){
+        var d = $q.defer();
+        $http.post('products/footer', {info:footer});
         $http.post('products/info', {info:info})
         .success(function(data){
             d.resolve(data);
