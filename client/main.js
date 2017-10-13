@@ -34,7 +34,8 @@ var myApp = angular.module('myApp', [
     'mailService',
     'startFrom',
     'angularSlideables',
-    'angularTrix'
+    'angularTrix',
+    'ngDraggable'
 ]);
 
 myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {

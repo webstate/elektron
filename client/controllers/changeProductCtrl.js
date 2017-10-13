@@ -117,4 +117,10 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
             $scope.pictureCarousel.splice(index, 1);
         }
     }
+    $scope.onDropComplete = function (index, obj, evt) {
+        var otherObj = $scope.pictureCarousel[index];
+        var otherIndex = $scope.pictureCarousel.indexOf(obj);
+        $scope.pictureCarousel[index] = obj;
+        $scope.pictureCarousel[otherIndex] = otherObj;
+    }
 })

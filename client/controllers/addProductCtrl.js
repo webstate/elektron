@@ -111,5 +111,12 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
         }
     }
 
+    $scope.onDropComplete = function (index, obj, evt) {
+        var otherObj = $scope.filesToSave[index];
+        var otherIndex = $scope.filesToSave.indexOf(obj);
+        $scope.filesToSave[index] = obj;
+        $scope.filesToSave[otherIndex] = otherObj;
+    }
+
     $scope.names = ["Price per unit", "Price per kg", "Price per meter"];
 })

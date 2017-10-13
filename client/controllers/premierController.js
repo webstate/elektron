@@ -49,9 +49,21 @@ premierController.controller('premierController', function($scope, productServic
         var nextImage = (testIndex-1 + $scope.pictureCarousel.length) % $scope.pictureCarousel.length;
         $scope.picViewUrl = $scope.pictureCarousel[nextImage];
     }
-    $scope.moveForward = function(){
+    $scope.moveForward = function(element){
 
-        $scope.mainUrl = $scope.pictureCarousel[index >= $scope.pictureCarousel.length - 1 ? index = 0 : ++index];
+        //$scope.mainUrl = $scope.pictureCarousel[index >= $scope.pictureCarousel.length - 1 ? index = 0 : ++index];
+
+        var testIndex = $scope.pictureCarousel.indexOf(element);
+        // var nextImage = (testIndex-1 + $scope.pictureCarousel.length) % $scope.pictureCarousel.length;
+        var nextImage = testIndex + 1;
+        if (nextImage >= $scope.pictureCarousel.length) {
+            nextImage = 0;
+        }
+        $scope.mainUrl = $scope.pictureCarousel[nextImage];
+
+
+
+
         //$scope.mainUrl = $scope.pictureCarousel[index++%$scope.pictureCarousel.length]
         /*if(index != $scope.pictureCarousel.length-1){
             $scope.mainUrl = $scope.pictureCarousel[index];
@@ -64,7 +76,11 @@ premierController.controller('premierController', function($scope, productServic
     }
     $scope.moveBack = function(element){
         var testIndex = $scope.pictureCarousel.indexOf(element);
-        var nextImage = (testIndex-1 + $scope.pictureCarousel.length) % $scope.pictureCarousel.length;
+        // var nextImage = (testIndex-1 + $scope.pictureCarousel.length) % $scope.pictureCarousel.length;
+        var nextImage = testIndex - 1;
+        if (nextImage < 0) {
+            nextImage = $scope.pictureCarousel.length - 1;
+        }
         $scope.mainUrl = $scope.pictureCarousel[nextImage];
         //$scope.mainUrl = $scope.pictureCarousel[index + $scope.pictureCarousel.length - 1 ? index = 0 : --index];
         //$scope.mainUrl = $scope.pictureCarousel[index--%$scope.pictureCarousel.length]
