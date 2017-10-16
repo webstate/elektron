@@ -12,6 +12,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         $scope.productForm.information = data.information;
         $scope.pictureCarousel = data.picture;
         $scope.activeMenu = data.mainImage;
+        $scope.lastMain = $scope.activeMenu;
         $scope.keyword = data.keyword;
         $scope.minOrderQuant = data.minOrderQuantity;
     }, function(err){
@@ -94,8 +95,7 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
             return;
         }
 
-        console.dir(event);
-
+        $scope.lastMain = $scope.activeMenu;
         $scope.activeMenu = url;
         $scope.mainPictureStatus = true;
     }
@@ -118,6 +118,8 @@ changeProductCtrl.controller('changeProductCtrl', function($scope, $rootScope, p
         }
     }
     $scope.onDropComplete = function (index, obj, evt) {
+        $scope.activeMenu = $scope.lastMain;
+
         var otherObj = $scope.pictureCarousel[index];
         var otherIndex = $scope.pictureCarousel.indexOf(obj);
         $scope.pictureCarousel[index] = obj;

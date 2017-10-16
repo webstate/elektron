@@ -21,11 +21,11 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
         console.log("this is images front: " + $scope.imagesFront);
     }, true);*/
     $scope.setMainImage = function(url, event){
-
         if (event.target.classList.contains('close')) {
             return;
         }
 
+        $scope.lastMain = $scope.activeMenu;
         $scope.activeMenu = url;
         $scope.mainPictureStatus = true;
     }
@@ -112,6 +112,8 @@ addProductCtrl.controller('addProductCtrl', function($scope, productService, pic
     }
 
     $scope.onDropComplete = function (index, obj, evt) {
+        $scope.activeMenu = $scope.lastMain;
+
         var otherObj = $scope.filesToSave[index];
         var otherIndex = $scope.filesToSave.indexOf(obj);
         $scope.filesToSave[index] = obj;
