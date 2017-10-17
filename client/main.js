@@ -60,17 +60,17 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
       abstract: true,
       url: '/admin',
       templateUrl: 'partials/admin.html',
-      access: {restricted: false}
+      access: {restricted: true}
     })
     .state('admin.products', {
         url:'/products',
         templateUrl: 'partials/products.html',
-        access: {restricted:false}
+        access: {restricted: true}
     })
     .state('admin.contacts', {
         url:'/contacts',
         templateUrl: 'partials/contact-info-admin.html',
-        access: {restricted: false}
+        access: {restricted: true}
     })
     .state('login', {
       url: '/login',
@@ -103,7 +103,7 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         url: '/addproduct',
         templateUrl: 'partials/add-product.html',
         controller: 'addProductCtrl',
-        access: {restricted: false}
+        access: {restricted: true}
     })
     .state('products', {
         url:'/products',
@@ -114,13 +114,13 @@ myApp.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
         url: '/change',
         templateUrl: 'partials/change-product.html',
         controller: 'changeProductCtrl',
-        access: {restricted: false}
+        access: {restricted: true}
     })
     .state('changeContact', {
         url: '/change/contact',
         templateUrl: 'partials/change-contact-info.html',
         controller: 'contactCtrl',
-        access: {restricted: false}
+        access: {restricted: true}
     })
     .state('createContact', {
         url: '/create/contact',
