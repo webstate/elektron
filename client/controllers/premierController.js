@@ -283,4 +283,10 @@ premierController.controller('premierController', function($scope, productServic
     $scope.isNaN = function(number){
         return isNaN(number);
     }
+    $scope.focus = function() {
+        $rootScope.quantity = true;
+    }
+    $scope.blur = function() {
+        $rootScope.quantity = false;
+    }
 })

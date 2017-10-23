@@ -53,7 +53,7 @@ appCtrl.controller('appCtrl', function($scope, $state, $document, productService
         })
     }
     $scope.test = function(keycode, e){
-        if($state.current.name ==='landing' && !$rootScope.name && !$rootScope.email && !$rootScope.subject && !$rootScope.message && !$rootScope.request && !$rootScope.askForMore){
+        if($state.current.name ==='landing' && !$rootScope.name && !$rootScope.email && !$rootScope.subject && !$rootScope.message && !$rootScope.request && !$rootScope.askForMore && !$rootScope.quantity){
             e.preventDefault();
             $document[0].body.className = "no-scroll";
             if(keycode === 8){

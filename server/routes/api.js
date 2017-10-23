@@ -183,7 +183,7 @@ router.post('/order', function(req, res){
     }
     var orderToShop = {
         from: "Tellimise liides<info@elektronet.ee>",
-        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee, mail@jkniest.de",
+        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee",
         subject: "Tehtud on uus tellimus",
         html: '<!DOCTYPE html>\
             <html>\
@@ -257,7 +257,7 @@ router.post('/contact', function(req, res){
     }
     var feedBackToShop = {
         from: "Tagasiside liides<info@elektronet.ee>",
-        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee, mail@jkniest.de",
+        to: "oskarmartinco@gmail.com, wpihor@gmail.com, ivo.laur@elektronet.ee",
         subject:"Uus tagasiside elektronet.ee kaudu",
         html:'<!DOCTYPE html>\
             <html>\
