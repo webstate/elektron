@@ -1,6 +1,6 @@
 var allProductsCtrl = angular.module('allProductsCtrl', []);
 
-allProductsCtrl.controller('allProductsCtrl', function($http, $scope, idService, $location){
+allProductsCtrl.controller('allProductsCtrl', function($http, $scope, idService, $location, productService){
     $http.get('products/all').success(function(data){
         //console.log(data);
         $scope.products = data;
@@ -22,5 +22,16 @@ allProductsCtrl.controller('allProductsCtrl', function($http, $scope, idService,
     $scope.changeProductInformation = function(id){
         idService.setId(id);
         $location.path('/change');
+    }
+    $scope.onDropComplete = function (index, obj, evt) {
+        var otherObj = $scope.products[index];
+        var otherIndex = $scope.products.indexOf(obj);
+        $scope.products[index] = obj;
+        $scope.products[otherIndex] = otherObj;
+
+        for(var i = 0; i < $scope.products.length; i++) {
+            var product = $scope.products[i];
+            productService.updateOrder(product._id, i);
+        }
     }
 })

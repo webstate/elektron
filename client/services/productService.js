@@ -45,6 +45,16 @@ productService.factory('productService', function($q, $timeout, $http){
         })
         return d.promise;
     }
+    function updateOrder(id, order){
+        var d = $q.defer();
+        $http.post('products/orderupdate', {id:id, order:order})
+            .success(function(data){
+                d.resolve(data);
+            }).error(function(err){
+            d.resolve(err);
+        })
+        return d.promise;
+    }
     function updateMainImage(path){
         var d = $q.defer();
         $http.post('products/imageupdate', {path:path})
@@ -74,6 +84,7 @@ productService.factory('productService', function($q, $timeout, $http){
         getProducts: getProducts,
         getProductById: getProductById,
         updateProduct: updateProduct,
-        updateMainImage: updateMainImage
+        updateMainImage: updateMainImage,
+        updateOrder: updateOrder
     })
 })

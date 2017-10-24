@@ -362,7 +362,8 @@ router.post('/add', function(req, res){
 		picture: req.body.pictureArray,
         mainImage: req.body.mainImage,
         keyword: req.body.keywords,
-        minOrderQuantity: req.body.minOrderQuantity
+        minOrderQuantity: req.body.minOrderQuantity,
+        order: 9999
 	}, function(err, product){
 		if(err) res.send(err);
 		return res.status(200).json({
@@ -395,9 +396,27 @@ router.post('/update', function(req, res){
         })
     })
 })
+
+router.post('/orderupdate', function(req, res){
+    Product.findOne({
+        _id: req.body.id
+    }, function(err, product){
+        if(err)console.log(err);
+        console.log(product);
+        product.update({
+            order: req.body.order,
+        }, function(err, callback){
+            if(err)console.log(err);
+            res.json({
+                msg: "product was updated"
+            })
+        })
+    })
+})
+
 router.get('/all', function(req, res){
-	Product.find(function(err, products){
-		if(err) res.send(err);
+	Product.find().sort('order').exec(function(err, products){
+	    console.dir(products);
 		res.json(products);
 	});
 });
