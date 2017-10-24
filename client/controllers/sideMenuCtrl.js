@@ -30,6 +30,7 @@ sideMenuCtrl.controller('sideMenuCtrl', function($rootScope, $scope, dataService
                     break;
                 }
                 $scope.products[i].quant = $scope.products[i].quant-1;
+                $scope.products[i].sum = $scope.products[i].quant * $scope.products[i].price;
                 //$scope.products[i].sum = $scope.products[i].sum-$scope.products[i].price;
                 //$rootScope.totalSum -= $scope.products[i].price;
                 break;
@@ -41,6 +42,7 @@ sideMenuCtrl.controller('sideMenuCtrl', function($rootScope, $scope, dataService
         for(var i = 0; i <= $scope.products.length-1; i++){
             if($scope.products[i].name === name){
                 $scope.products[i].quant = $scope.products[i].quant+1;
+                $scope.products[i].sum = $scope.products[i].quant * $scope.products[i].price;
                 //$scope.products[i].sum = parseInt($scope.products[i].sum)+parseInt($scope.products[i].price);
                 //$rootScope.totalSum += $scope.products[i].price;
                 break;

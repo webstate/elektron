@@ -109,7 +109,7 @@
                                     <b  style="font-family:Hel-Bold;">Out of stock</b>
                                 </div>
                                 <div ng-if="quant > 0" class="col-md-6">
-                                    <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
+                                    <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-change="calc()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
                                     <br>
                                     <span ng-if="minOrderQuant">Min {{minOrderQuant}} order quantity</span>
                                 </div>
@@ -244,7 +244,7 @@
                                     <b  style="font-family:Hel-Bold;">Out of stock</b>
                                 </div>
                                 <div ng-if="quant > 0 || isNaN(quant)" class="col-md-6">
-                                        <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
+                                        <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-change="calc()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
                                 </div>
                                 <div class="col-md-6">
                                     Total price: <p ng-model="counter.price">
@@ -311,7 +311,7 @@
                     </div>
                     <div style="float:left; width:50px;height:50px;">
                         <p class="sidemenu-price-item">
-                            {{item.price}} {{item.currency}}
+                            {{item.sum}} {{item.currency}}
                         </p>
                     </div>
                     <div class="deleteBtn" ng-click="deleteProduct(item.name)"><img id="delete-product-btn" src="img/white-close.png"/></div>
@@ -411,7 +411,7 @@
                                     <b  style="font-family:Hel-Bold;">Out of stock</b>
                                 </div>
                                 <div ng-if="quant > 0 || isNaN(quant)" class="col-md-6">
-                                    <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
+                                    <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-change="calc()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
                                 </div>
                                 <div class="col-md-6">
                                     Total price: <p ng-model="counter.price">
@@ -533,7 +533,7 @@
                                     <b  style="font-family:Hel-Bold;">Out of stock</b>
                                 </div>
                                 <div ng-if="quant > 0 || isNaN(quant)" class="col-md-6">
-                                        <a  class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-model="counter.value" class="information--quant noselect" min="0" max="{{quant}}"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
+                                        <a  class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-change="calc()" ng-model="counter.value" class="information--quant noselect" min="0" max="{{quant}}"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
                                 </div>
                                 <div class="col-md-6">
                                     Total price: <p ng-model="counter.price">
@@ -644,7 +644,7 @@
                                     <b  style="font-family:Hel-Bold;">Out of stock</b>
                                 </div>
                                 <div ng-if="quant > 0" class="col-md-6">
-                                        <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
+                                        <a class="divide-btn noselect" ng-click="counterDivide()">-</a><input type="number" ng-focus="focus()" ng-blur="blur()" ng-change="calc()" ng-model="counter.value" class="information--quant noselect" min="0"/><a class="add-btn noselect" ng-click="counterAdd()">+</a>
                                 </div>
                                 <div class="col-md-6 price-row">
                                     Total price: <p ng-model="counter.price">

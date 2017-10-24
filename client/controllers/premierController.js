@@ -289,4 +289,12 @@ premierController.controller('premierController', function($scope, productServic
     $scope.blur = function() {
         $rootScope.quantity = false;
     }
+    $scope.calc = function() {
+        console.dir($scope.counter.value);
+        if (isNaN(parseInt($scope.counter.value))) {
+            $scope.sumprice = 0;
+        } else {
+            $scope.sumprice = parseInt($scope.price) * parseInt($scope.counter.value);
+        }
+    }
 })
