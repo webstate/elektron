@@ -184,6 +184,7 @@ premierController.controller('premierController', function($scope, productServic
     }
     $scope.changeShow = function(index){
         $scope.num = index;
+        $scope.counter.value = 1;
     }
 
     $scope.testRootScope = function(){
