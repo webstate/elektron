@@ -192,11 +192,11 @@ premierController.controller('premierController', function($scope, productServic
         var dataToBasket = {};
         if(test.length === 0){
             dataToBasket.name = $scope.title;
-            dataToBasket.sum = parseInt($scope.sumprice);
+            dataToBasket.sum = $scope.sumprice;
             dataToBasket.pic = $scope.url;
             dataToBasket.currency = $scope.currency;
             dataToBasket.quant = $scope.counter.value;
-            dataToBasket.price = parseInt($scope.price);
+            dataToBasket.price = parseFloat($scope.price.replace(",", "."));
 
             dataService.setData(dataToBasket);
             $scope.counter.value = 1;
@@ -204,22 +204,22 @@ premierController.controller('premierController', function($scope, productServic
         }else{
             if($scope.search(test, $scope.title) === true){
                 dataToBasket.name = $scope.title;
-                dataToBasket.sum = parseInt($scope.sumprice);
+                dataToBasket.sum = $scope.sumprice;
                 dataToBasket.pic = $scope.url;
                 dataToBasket.currency = $scope.currency;
                 dataToBasket.quant = $scope.counter.value + $scope.doubleCounter;
-                dataToBasket.price = parseInt($scope.price);
+                dataToBasket.price = parseFloat($scope.price.replace(",", "."));
 
                 dataService.setData(dataToBasket);
                 $scope.counter.value = 1;
                 $scope.sumprice = parseInt($scope.price);
             }else{
                 dataToBasket.name = $scope.title;
-                dataToBasket.sum = parseInt($scope.sumprice);
+                dataToBasket.sum = $scope.sumprice;
                 dataToBasket.pic = $scope.url;
                 dataToBasket.currency = $scope.currency;
                 dataToBasket.quant = $scope.counter.value;
-                dataToBasket.price = parseInt($scope.price);
+                dataToBasket.price = parseFloat($scope.price.replace(",", "."));
 
                 dataService.setData(dataToBasket);
                 $scope.counter.value = 1;
@@ -231,11 +231,11 @@ premierController.controller('premierController', function($scope, productServic
     $scope.counterDivide = function(){
         if($scope.counter.value <= 0){
             $scope.counter.value = 0;
-            $scope.sumprice = 0;
         }else{
             $scope.counter.value = $scope.counter.value - 1;
-            $scope.sumprice = parseInt($scope.sumprice) - parseInt($scope.price);
         }
+
+        $scope.calc();
 
 
 
@@ -256,7 +256,7 @@ premierController.controller('premierController', function($scope, productServic
     }
     $scope.counterAdd = function(){
         $scope.counter.value = $scope.counter.value + 1;
-        $scope.sumprice = parseInt($scope.sumprice) + parseInt($scope.price);
+        $scope.calc();
     }
     $scope.closeModal = function(){
         $scope.num = -1;
@@ -294,7 +294,7 @@ premierController.controller('premierController', function($scope, productServic
         if (isNaN(parseInt($scope.counter.value))) {
             $scope.sumprice = 0;
         } else {
-            $scope.sumprice = parseInt($scope.price) * parseInt($scope.counter.value);
+            $scope.sumprice = (parseFloat($scope.price.replace(",", ".")) * parseInt($scope.counter.value)).toFixed(2);
         }
     }
 })
