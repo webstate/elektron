@@ -290,7 +290,6 @@ premierController.controller('premierController', function($scope, productServic
         $rootScope.quantity = false;
     }
     $scope.calc = function() {
-        console.dir($scope.counter.value);
         if (isNaN(parseInt($scope.counter.value))) {
             $scope.sumprice = 0;
         } else {
