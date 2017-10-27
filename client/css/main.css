@@ -826,9 +826,10 @@ input[type=number]::-webkit-outer-spin-button {
     overflow-y: scroll;
 }
 .sidemenu-list > li{
-    display:block;
+    /** display:block; */
     height:100px;
     width:100%;
+    display: flex;
 }
 .sidemenu-img-holder{
     height: 75px;
